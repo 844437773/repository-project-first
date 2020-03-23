@@ -1,3 +1,1 @@
-�����ļ�
-change 1
-2
+newbranch - commit - 1
