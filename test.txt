@@ -1,2 +1,1 @@
 master - commit - 1
-newbranch - commit - 3
