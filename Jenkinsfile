@@ -20,7 +20,7 @@ pipeline {
         stage('安装依赖') {
             steps {
                 sh '''
-                    pnpm install
+                    cnpm install
                 '''
             }
         }
