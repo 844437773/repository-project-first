@@ -3,8 +3,8 @@ pipeline {
     
     environment {
         NODE_VERSION = '16.14.0'
-        PROJECT_PATH = '/projects/repository-project-first/'
-        DEPLOY_PATH = '/var/lib/jenkins/workspace/project-vue/'
+        PROJECT_PATH = '/var/lib/jenkins/workspace/project-vue'
+        DEPLOY_PATH = '/projects/repository-project-first'
     }
     
     stages {
@@ -34,8 +34,8 @@ pipeline {
         stage('部署项目') {
             steps {
                 sh '''
-                    rm -rf ${PROJECT_PATH}/dist/*
-                    cp -r ${DEPLOY_PATH}/dist/* ${PROJECT_PATH}/
+                    rm -rf ${DEPLOY_PATH}/dist/*
+                    cp -r ${PROJECT_PATH}/dist/* ${DEPLOY_PATH}/
                 '''
             }
         }
