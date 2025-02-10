@@ -3,24 +3,22 @@ pipeline {
     
     environment {
         NODE_VERSION = '16.14.0'
-        PROJECT_PATH = '/var/jenkins_home/workspace/vue3-project'
-        DEPLOY_PATH = '/usr/local/nginx/html'
+        PROJECT_PATH = '/projects/repository-project-first/'
+        DEPLOY_PATH = '/projects/repository-project-first/dist'
     }
     
     stages {
         stage('拉取代码') {
             steps {
-                git branch: 'main', 
-                    url: '您的Git仓库地址'
+                git branch: 'master', 
+                    url: 'git@github.com:844437773/repository-project-first.git'
             }
         }
         
         stage('安装依赖') {
             steps {
                 sh '''
-                    source ~/.nvm/nvm.sh
-                    nvm use ${NODE_VERSION}
-                    npm install
+                    pnpm install
                 '''
             }
         }
@@ -28,8 +26,6 @@ pipeline {
         stage('项目打包') {
             steps {
                 sh '''
-                    source ~/.nvm/nvm.sh
-                    nvm use ${NODE_VERSION}
                     npm run build
                 '''
             }
@@ -38,8 +34,6 @@ pipeline {
         stage('部署项目') {
             steps {
                 sh '''
-                    rm -rf ${DEPLOY_PATH}/*
-                    cp -r ${PROJECT_PATH}/dist/* ${DEPLOY_PATH}/
                 '''
             }
         }
