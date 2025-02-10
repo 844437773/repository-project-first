@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                     rm -rf ${DEPLOY_PATH}/dist/*
-                    cp -r ${PROJECT_PATH}/dist/* ${DEPLOY_PATH}/
+                    cp -r ${PROJECT_PATH}/dist/* ${DEPLOY_PATH}/dist
                 '''
             }
         }
