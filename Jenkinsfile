@@ -4,14 +4,14 @@ pipeline {
     environment {
         NODE_VERSION = '16.14.0'
         PROJECT_PATH = '/projects/repository-project-first/'
-        DEPLOY_PATH = '/projects/repository-project-first/dist'
+        DEPLOY_PATH = '/var/lib/jenkins/workspace/project-vue/'
     }
     
     stages {
         stage('拉取代码') {
             steps {
                 git branch: 'master', 
-                    url: 'git@github.com:844437773/repository-project-first.git'
+                    url: 'https://github.com/844437773/repository-project-first.git'
             }
         }
         
@@ -34,6 +34,8 @@ pipeline {
         stage('部署项目') {
             steps {
                 sh '''
+                    rm -rf ${PROJECT_PATH}/dist/*
+                    cp -r ${DEPLOY_PATH}/dist/* ${PROJECT_PATH}/
                 '''
             }
         }
