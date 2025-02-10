@@ -5,6 +5,7 @@ pipeline {
         NODE_VERSION = '16.14.0'
         PROJECT_PATH = '/var/lib/jenkins/workspace/project-vue'
         DEPLOY_PATH = '/projects/repository-project-first'
+        GIT_SSH_COMMAND = 'ssh -o StrictHostKeyChecking=no'
     }
     
     stages {
