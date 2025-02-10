@@ -11,7 +11,8 @@ pipeline {
         stage('拉取代码') {
             steps {
                 git branch: 'master', 
-                    url: 'https://github.com/844437773/repository-project-first.git'
+                    credentialsId: "global-git-ssh-key",
+                    url: 'git@github.com:844437773/repository-project-first.git';
             }
         }
         
