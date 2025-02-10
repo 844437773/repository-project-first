@@ -7,13 +7,13 @@ export NODE_ENV=production
 rm -rf dist
 
 # 安装依赖
-npm install
+pnpm install
 
 # 构建项目
 npm run build
 
 # 部署到nginx目录
-sudo cp -r dist/* /usr/local/nginx/html/
+sudo cp -r dist/* /projects/repository-project-first/
 
 # 重启nginx
 sudo systemctl restart nginx 
